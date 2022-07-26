@@ -1,15 +1,16 @@
+'Author: Shuu Koukou
 VERSION 5.00
-Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} ufm“ú•ñ¶¬ 
-   Caption         =   "“ú•ñ¶¬"
+Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} ufmæ—¥å ±ç”Ÿæˆ 
+   Caption         =   "æ—¥å ±ç”Ÿæˆ"
    ClientHeight    =   6810
    ClientLeft      =   45
    ClientTop       =   375
    ClientWidth     =   5400
-   OleObjectBlob   =   "ufm“ú•ñ¶¬.frx":0000
+   OleObjectBlob   =   "ufmæ—¥å ±ç”Ÿæˆ.frx":0000
    ShowModal       =   0   'False
-   StartUpPosition =   1  'ƒI[ƒi[ ƒtƒH[ƒ€‚Ì’†‰›
+   StartUpPosition =   1  'ã‚ªãƒ¼ãƒŠãƒ¼ ãƒ•ã‚©ãƒ¼ãƒ ã®ä¸­å¤®
 End
-Attribute VB_Name = "ufm“ú•ñ¶¬"
+Attribute VB_Name = "ufmæ—¥å ±ç”Ÿæˆ"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -17,7 +18,7 @@ Attribute VB_Exposed = False
 
 Private Sub UserForm_Initialize()
 
-    'ƒEƒBƒ“ƒhƒEˆÊ’u’†‰›(ExcelŠî€)
+    'ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ä½ç½®ä¸­å¤®(ExcelåŸºæº–)
     Me.StartUpPosition = 0
     Me.Top = Application.Top + (Application.Height / 2) - Me.Height - 4
     Me.Left = Application.Left + (Application.Width / 2) - Me.Width - 4
@@ -28,157 +29,157 @@ Private Sub UserForm_Initialize()
         Me.Left = 0
     End If
     
-    '”NŒ“úƒŠƒXƒg‰Šú‰»
-    cmb”N.Clear
+    'å¹´æœˆæ—¥ãƒªã‚¹ãƒˆåˆæœŸåŒ–
+    cmbå¹´.Clear
     For i = Year(Date) - 2 To Year(Date) + 1
-        cmb”N.AddItem i
+        cmbå¹´.AddItem i
     Next i
-    cmb”N.Value = Year(Date)
+    cmbå¹´.Value = Year(Date)
 
-    cmbŒ.Clear
+    cmbæœˆ.Clear
     For i = 1 To 12
-        cmbŒ.AddItem i
+        cmbæœˆ.AddItem i
     Next i
-    cmbŒ.Value = Month(Date)
+    cmbæœˆ.Value = Month(Date)
     
-    Dim “–Œ“ú”, —j“ú As String
-    “–Œ“ú” = Day(DateSerial(Year(cmb”N.Value), Month(cmbŒ.Value) + 1, 0))
-    cmb“ú.Clear
-    For i = 1 To “–Œ“ú”
-        —j“ú = Format(Weekday(DateSerial(cmb”N.Value, cmbŒ.Value, i)), "aaa")
-        cmb“ú.AddItem i
-        cmb“ú.List(cmb“ú.ListCount - 1, 0) = i
-        cmb“ú.List(cmb“ú.ListCount - 1, 1) = —j“ú
-        cmb“ú.List(cmb“ú.ListCount - 1, 2) = i & "(" & —j“ú & ")"
+    Dim å½“æœˆæ—¥æ•°, æ›œæ—¥ As String
+    å½“æœˆæ—¥æ•° = Day(DateSerial(Year(cmbå¹´.Value), Month(cmbæœˆ.Value) + 1, 0))
+    cmbæ—¥.Clear
+    For i = 1 To å½“æœˆæ—¥æ•°
+        æ›œæ—¥ = Format(Weekday(DateSerial(cmbå¹´.Value, cmbæœˆ.Value, i)), "aaa")
+        cmbæ—¥.AddItem i
+        cmbæ—¥.List(cmbæ—¥.ListCount - 1, 0) = i
+        cmbæ—¥.List(cmbæ—¥.ListCount - 1, 1) = æ›œæ—¥
+        cmbæ—¥.List(cmbæ—¥.ListCount - 1, 2) = i & "(" & æ›œæ—¥ & ")"
     Next i
-    cmb“ú.Value = Day(DateAdd("d", -1, Date))
-    '“ú—j‚Ìê‡‚É‹à—j“ú‚Éİ’è
-    If cmb“ú.List(cmb“ú.ListIndex, 1) = "“ú" Then
-        cmb“ú.Value = Day(DateAdd("d", -3, Date))
+    cmbæ—¥.Value = Day(DateAdd("d", -1, Date))
+    'æ—¥æ›œã®å ´åˆã«é‡‘æ›œæ—¥ã«è¨­å®š
+    If cmbæ—¥.List(cmbæ—¥.ListIndex, 1) = "æ—¥" Then
+        cmbæ—¥.Value = Day(DateAdd("d", -3, Date))
     End If
 
 End Sub
 
-Private Sub btn¶¬_Click()
+Private Sub btnç”Ÿæˆ_Click()
 
-    Dim ‹L˜^“ú•t As String
-    If cmb”N.Value = "" Or cmbŒ.Value = "" Or cmb“ú.Value = "" Then
-        MsgBox "‹L˜^“ú•t‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B", vbExclamation
-        cmb”N.SetFocus
+    Dim è¨˜éŒ²æ—¥ä»˜ As String
+    If cmbå¹´.Value = "" Or cmbæœˆ.Value = "" Or cmbæ—¥.Value = "" Then
+        MsgBox "è¨˜éŒ²æ—¥ä»˜ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚", vbExclamation
+        cmbå¹´.SetFocus
         Exit Sub
     End If
-    ‹L˜^“ú•t = cmb”N.Value & "/" & Format(cmbŒ.Value, "00") & "/" & Format(cmb“ú.Value, "00")
+    è¨˜éŒ²æ—¥ä»˜ = cmbå¹´.Value & "/" & Format(cmbæœˆ.Value, "00") & "/" & Format(cmbæ—¥.Value, "00")
     
-    'ƒf[ƒ^ƒx[ƒXÚ‘±
+    'ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹æ¥ç¶š
     On Error GoTo ErrDBOpen
     Dim oWks As DAO.Workspace, oDB As DAO.Database, oRS As DAO.Recordset
-    Set oWks = CreateObject(DAOƒGƒ“ƒWƒ“).Workspaces(0)
-    Set oDB = DBÚ‘±(oWks, True)
+    Set oWks = CreateObject(DAOã‚¨ãƒ³ã‚¸ãƒ³).Workspaces(0)
+    Set oDB = DBæ¥ç¶š(oWks, True)
     On Error GoTo ErrRSOpen
     
-    sql = "SELECT “ú•ñ“\•t,ŠÔ”" _
-        & " FROM ŠÔŠÇ—" _
-        & " WHERE ‹L˜^“ú•t =#" & ‹L˜^“ú•t & "#" _
-        & " AND íœƒtƒ‰ƒO = False" _
-        & " ORDER BY [ŠJnŠÔ]"
+    sql = "SELECT æ—¥å ±è²¼ä»˜,æ™‚é–“æ•°" _
+        & " FROM æ™‚é–“ç®¡ç†" _
+        & " WHERE è¨˜éŒ²æ—¥ä»˜ =#" & è¨˜éŒ²æ—¥ä»˜ & "#" _
+        & " AND å‰Šé™¤ãƒ•ãƒ©ã‚° = False" _
+        & " ORDER BY [é–‹å§‹æ™‚é–“]"
     Set oRS = oDB.OpenRecordset(sql, dbOpenDynaset)
-    txt“ú•ñ¶¬.Value = ""
-    txt‡ŒvŠÔ.Value = "0"
+    txtæ—¥å ±ç”Ÿæˆ.Value = ""
+    txtåˆè¨ˆæ™‚é–“.Value = "0"
     Do Until oRS.EOF
-        If txt“ú•ñ¶¬.Value <> "" Then
-            txt“ú•ñ¶¬.Value = Trim(txt“ú•ñ¶¬.Value) & vbCrLf & Trim(oRS.Fields("“ú•ñ“\•t").Value)
+        If txtæ—¥å ±ç”Ÿæˆ.Value <> "" Then
+            txtæ—¥å ±ç”Ÿæˆ.Value = Trim(txtæ—¥å ±ç”Ÿæˆ.Value) & vbCrLf & Trim(oRS.Fields("æ—¥å ±è²¼ä»˜").Value)
         Else
-            txt“ú•ñ¶¬.Value = "i’»‚È‚Ç" & vbCrLf & Trim(oRS.Fields("“ú•ñ“\•t").Value)
+            txtæ—¥å ±ç”Ÿæˆ.Value = "é€²æ—ãªã©" & vbCrLf & Trim(oRS.Fields("æ—¥å ±è²¼ä»˜").Value)
         End If
-        txt‡ŒvŠÔ.Value = val(txt‡ŒvŠÔ.Value) + val(oRS.Fields("ŠÔ”"))
+        txtåˆè¨ˆæ™‚é–“.Value = val(txtåˆè¨ˆæ™‚é–“.Value) + val(oRS.Fields("æ™‚é–“æ•°"))
         oRS.MoveNext
     Loop
     
-    sql = "SELECT ¡Œã‚Ìì‹Æ,ƒvƒƒWƒFƒNƒg–¼" _
-        & " FROM ƒ`ƒPƒbƒgŠÇ—" _
-        & " LEFT JOIN ƒvƒƒWƒFƒNƒgŠÇ— ON ƒvƒƒWƒFƒNƒgŠÇ—.ƒvƒƒWƒFƒNƒg”Ô† = ƒ`ƒPƒbƒgŠÇ—.ƒvƒƒWƒFƒNƒg”Ô†" _
-        & " WHERE ƒ`ƒPƒbƒgŠÇ—.ƒXƒe[ƒ^ƒX <> " & ƒXƒe[ƒ^ƒX_I—¹ _
-        & " AND ƒ`ƒPƒbƒgŠÇ—.íœƒtƒ‰ƒO <> True" _
-        & " ORDER BY ƒ`ƒPƒbƒgŠÇ—.ƒvƒƒWƒFƒNƒg”Ô†,ŠJn"
+    sql = "SELECT ä»Šå¾Œã®ä½œæ¥­,ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆå" _
+        & " FROM ãƒã‚±ãƒƒãƒˆç®¡ç†" _
+        & " LEFT JOIN ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆç®¡ç† ON ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆç®¡ç†.ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆç•ªå· = ãƒã‚±ãƒƒãƒˆç®¡ç†.ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆç•ªå·" _
+        & " WHERE ãƒã‚±ãƒƒãƒˆç®¡ç†.ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ <> " & ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹_çµ‚äº† _
+        & " AND ãƒã‚±ãƒƒãƒˆç®¡ç†.å‰Šé™¤ãƒ•ãƒ©ã‚° <> True" _
+        & " ORDER BY ãƒã‚±ãƒƒãƒˆç®¡ç†.ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆç•ªå·,é–‹å§‹"
     Set oRS = oDB.OpenRecordset(sql, dbOpenDynaset)
-    Dim ƒvƒƒWƒFƒNƒg–¼ As String
-    txt¡Œãì‹Æ¶¬.Value = ""
+    Dim ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆå As String
+    txtä»Šå¾Œä½œæ¥­ç”Ÿæˆ.Value = ""
     Do Until oRS.EOF
-        If Not IsNull(oRS.Fields("¡Œã‚Ìì‹Æ").Value) Then
-            If txt¡Œãì‹Æ¶¬.Value <> "" Then
-                If ƒvƒƒWƒFƒNƒg–¼ <> oRS.Fields("ƒvƒƒWƒFƒNƒg–¼").Value Then
-                    txt¡Œãì‹Æ¶¬.Value = Trim(txt¡Œãì‹Æ¶¬.Value) & vbCrLf & vbCrLf & Trim(oRS.Fields("ƒvƒƒWƒFƒNƒg–¼")) & vbCrLf & Trim(Null2Blank(oRS.Fields("¡Œã‚Ìì‹Æ").Value))
+        If Not IsNull(oRS.Fields("ä»Šå¾Œã®ä½œæ¥­").Value) Then
+            If txtä»Šå¾Œä½œæ¥­ç”Ÿæˆ.Value <> "" Then
+                If ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆå <> oRS.Fields("ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆå").Value Then
+                    txtä»Šå¾Œä½œæ¥­ç”Ÿæˆ.Value = Trim(txtä»Šå¾Œä½œæ¥­ç”Ÿæˆ.Value) & vbCrLf & vbCrLf & Trim(oRS.Fields("ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆå")) & vbCrLf & Trim(Null2Blank(oRS.Fields("ä»Šå¾Œã®ä½œæ¥­").Value))
                 Else
-                    txt¡Œãì‹Æ¶¬.Value = Trim(txt¡Œãì‹Æ¶¬.Value) & vbCrLf & Trim(Null2Blank(oRS.Fields("¡Œã‚Ìì‹Æ").Value))
+                    txtä»Šå¾Œä½œæ¥­ç”Ÿæˆ.Value = Trim(txtä»Šå¾Œä½œæ¥­ç”Ÿæˆ.Value) & vbCrLf & Trim(Null2Blank(oRS.Fields("ä»Šå¾Œã®ä½œæ¥­").Value))
                 End If
             Else
-                txt¡Œãì‹Æ¶¬.Value = "¡Œã‚Ìì‹Æ" & vbCrLf & vbCrLf & Trim(oRS.Fields("ƒvƒƒWƒFƒNƒg–¼").Value) & vbCrLf & Trim(Null2Blank(oRS.Fields("¡Œã‚Ìì‹Æ").Value))
+                txtä»Šå¾Œä½œæ¥­ç”Ÿæˆ.Value = "ä»Šå¾Œã®ä½œæ¥­" & vbCrLf & vbCrLf & Trim(oRS.Fields("ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆå").Value) & vbCrLf & Trim(Null2Blank(oRS.Fields("ä»Šå¾Œã®ä½œæ¥­").Value))
             End If
-            ƒvƒƒWƒFƒNƒg–¼ = oRS.Fields("ƒvƒƒWƒFƒNƒg–¼").Value
+            ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆå = oRS.Fields("ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆå").Value
         End If
         oRS.MoveNext
     Loop
     
-    txt‡ŒvŠÔ.BackColor = &HFFFFFF
-    If txt‡ŒvŠÔ.Value <> 7.75 Then
-        txt‡ŒvŠÔ.BackColor = &H8080FF
+    txtåˆè¨ˆæ™‚é–“.BackColor = &HFFFFFF
+    If txtåˆè¨ˆæ™‚é–“.Value <> 7.75 Then
+        txtåˆè¨ˆæ™‚é–“.BackColor = &H8080FF
     End If
     
     Dim h As Double
-    h = val(txt‡ŒvŠÔ.Value) - 7.75
+    h = val(txtåˆè¨ˆæ™‚é–“.Value) - 7.75
     If h > 0 Then
-        txtc‹ÆŠÔ.Value = h
+        txtæ®‹æ¥­æ™‚é–“.Value = h
     Else
-        txtc‹ÆŠÔ.Value = "0"
+        txtæ®‹æ¥­æ™‚é–“.Value = "0"
     End If
     
     
-    If txt“ú•ñ¶¬.Value = "" Then
-        MsgBox "‚±‚Ì“ú•t‚Ì“ú•ñ‚ª‚ ‚è‚Ü‚¹‚ñB‚²Šm”F‚­‚¾‚³‚¢B", vbExclamation
+    If txtæ—¥å ±ç”Ÿæˆ.Value = "" Then
+        MsgBox "ã“ã®æ—¥ä»˜ã®æ—¥å ±ãŒã‚ã‚Šã¾ã›ã‚“ã€‚ã”ç¢ºèªãã ã•ã„ã€‚", vbExclamation
     End If
     
     Exit Sub
 
 ErrDataInvalid:
-    'ƒf[ƒ^ƒx[ƒXØ’f
+    'ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹åˆ‡æ–­
     oRS.Close
     Set oRS = Nothing
     oDB.Close
     Set oDB = Nothing
     
-    MsgBox "ƒf[ƒ^‚Ì“Ço‚É¸”s‚µ‚Ü‚µ‚½BÄ“xÀs‚µ‚Ä‚­‚¾‚³‚¢B", vbExclamation
+    MsgBox "ãƒ‡ãƒ¼ã‚¿ã®èª­å‡ºã«å¤±æ•—ã—ã¾ã—ãŸã€‚å†åº¦å®Ÿè¡Œã—ã¦ãã ã•ã„ã€‚", vbExclamation
     Unload Me
     Exit Sub
     
 ErrRSOpen:
-    'ƒf[ƒ^ƒx[ƒXØ’f
+    'ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹åˆ‡æ–­
     Set oRS = Nothing
     oDB.Close
     Set oDB = Nothing
     
-    MsgBox "ƒf[ƒ^‚Ì“Ço‚É¸”s‚µ‚Ü‚µ‚½BÄ“xÀs‚µ‚Ä‚­‚¾‚³‚¢B(" & Err.Number & ")", vbExclamation
+    MsgBox "ãƒ‡ãƒ¼ã‚¿ã®èª­å‡ºã«å¤±æ•—ã—ã¾ã—ãŸã€‚å†åº¦å®Ÿè¡Œã—ã¦ãã ã•ã„ã€‚(" & Err.Number & ")", vbExclamation
     Unload Me
     Exit Sub
     
 ErrDBOpen:
-    MsgBox "ƒf[ƒ^ƒx[ƒX‚ÌÚ‘±‚É¸”s‚µ‚Ü‚µ‚½B(" & Err.Number & ")", vbCritical
+    MsgBox "ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®æ¥ç¶šã«å¤±æ•—ã—ã¾ã—ãŸã€‚(" & Err.Number & ")", vbCritical
     Unload Me
     
 End Sub
 
-Private Sub cmbŒ_Change()
+Private Sub cmbæœˆ_Change()
 
-    cmb“ú.Clear
-    cmb“ú.AddItem
-    Dim “–Œ“ú”, —j“ú As String
+    cmbæ—¥.Clear
+    cmbæ—¥.AddItem
+    Dim å½“æœˆæ—¥æ•°, æ›œæ—¥ As String
 
-    “–Œ“ú” = Day(DateSerial(cmb”N.Value, cmbŒ.Value + 1, 0))
-    For i = 1 To “–Œ“ú”
-        —j“ú = Format(Weekday(DateSerial(cmb”N.Value, cmbŒ.Value, i)), "aaa")
-        cmb“ú.AddItem
-        cmb“ú.List(cmb“ú.ListCount - 1, 0) = i
-        cmb“ú.List(cmb“ú.ListCount - 1, 1) = —j“ú
-        cmb“ú.List(cmb“ú.ListCount - 1, 2) = i & "(" & —j“ú & ")"
+    å½“æœˆæ—¥æ•° = Day(DateSerial(cmbå¹´.Value, cmbæœˆ.Value + 1, 0))
+    For i = 1 To å½“æœˆæ—¥æ•°
+        æ›œæ—¥ = Format(Weekday(DateSerial(cmbå¹´.Value, cmbæœˆ.Value, i)), "aaa")
+        cmbæ—¥.AddItem
+        cmbæ—¥.List(cmbæ—¥.ListCount - 1, 0) = i
+        cmbæ—¥.List(cmbæ—¥.ListCount - 1, 1) = æ›œæ—¥
+        cmbæ—¥.List(cmbæ—¥.ListCount - 1, 2) = i & "(" & æ›œæ—¥ & ")"
     Next i
 
 End Sub
